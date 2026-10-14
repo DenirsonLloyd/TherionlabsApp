@@ -118,8 +118,10 @@ El proyecto utiliza **Git y GitHub** para mantener el control de versiones y fac
 
 ## 👥 Integrantes
 
-- **Integrante 1:** Nombre y apellido
-- **Integrante 2:** Nombre y apellido
+- **Integrante 1:** Denilson Moya
+- **Integrante 2:** Juan Roldan
+- **Integrante 3:** Benjamin Catalan
+- **Integrante 4:** Camilo Ambrosetti
 
 ## 📚 Información académica
 
