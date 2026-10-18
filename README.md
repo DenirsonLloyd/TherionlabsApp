@@ -136,7 +136,7 @@ Credenciales de ejemplo para probar los distintos roles:
 
 ## 👥 Integrantes del equipo
 
-- **Denilson Moya**
+- **Denirson Moya**
 - **Juan Roldan**
 - **Benjamin Catalan**
 - **Camilo Ambrosetti**
