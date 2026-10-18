@@ -1,49 +1,43 @@
-<div align="center">
-
 # 🎓 TherionLabs
 
-### Aplicación móvil para el registro y seguimiento de prospectos académicos
+### Aplicación móvil para el registro, seguimiento y administración de prospectos académicos
 
-Una solución móvil diseñada para facilitar el registro de contactos, organizar sus intereses académicos y consultar la información almacenada localmente.
-
-</div>
-
----
+Una solución móvil robusta desarrollada en Android que facilita la captura de contactos en terreno, la organización de intereses académicos, la persistencia local de datos y un módulo exclusivo de control y supervisión gerencial.
 
 ## 📌 Descripción del proyecto
 
-**TherionLabs** es una aplicación móvil Android orientada al registro de prospectos interesados en una oferta académica. Permite ingresar información personal y preferencias de estudio mediante una interfaz organizada, y consultar los registros guardados en el dispositivo.
+**TherionLabs** es una aplicación móvil desarrollada para Android orientada a optimizar el trabajo de captación en terreno y la gestión administrativa de prospectos interesados en una oferta académica. El sistema permite registrar datos personales y preferencias de estudio mediante flujos guiados, almacenar la información de forma segura en el dispositivo mediante una base de datos local y ofrecer un panel de control avanzado para administradores.
 
 El proyecto se desarrolla como parte de la asignatura **DSY1105 – Desarrollo de Aplicaciones Móviles**.
 
 ## 🎯 Objetivo
 
-Ofrecer una experiencia sencilla e intuitiva para registrar prospectos, recopilar sus datos de contacto y organizar sus preferencias académicas, manteniendo la información disponible para su consulta.
+Proveer una herramienta multiplataforma e intuitiva que permita a los captadores registrar prospectos rápidamente y a los administradores supervisar el rendimiento general, consultar bases de datos globales y configurar los parámetros del sistema de manera local.
 
-## ✨ Funcionalidades
+## ✨ Funcionalidades principales
 
-- 📝 **Registro de prospectos:** formulario organizado en pasos para ingresar datos personales y preferencias académicas.
-- 👤 **Datos de contacto:** nombre, correo electrónico y teléfono.
-- 📚 **Preferencias académicas:** nivel educativo, área de interés, curso y modalidad de estudio.
-- ✅ **Validación de datos:** retroalimentación básica para el ingreso del correo electrónico.
-- 💾 **Almacenamiento local:** persistencia de los registros mediante una base de datos Room.
-- 📋 **Consulta de registros:** visualización de prospectos organizados según su estado.
-- 🧭 **Navegación entre pantallas:** acceso a las secciones principales desde la interfaz de la aplicación.
+- 🔐 **Control de acceso basado en roles:** separación estricta de credenciales y flujos de navegación entre usuarios captadores y administradores.
+- 📝 **Formulario de captación por pasos:** interfaz intuitiva para registrar datos de contacto y preferencias académicas.
+- 💾 **Persistencia local con Room:** almacenamiento seguro y consulta reactiva mediante bases de datos relacionales en el dispositivo.
+- 📋 **Listados maestros y estados:** visualización organizada de los prospectos capturados.
+- ⚙️ **Panel de administración general:** herramientas de supervisión, reportes y control de operaciones en terreno.
 
 ## 🛠️ Tecnologías utilizadas
 
-| Tecnología | Uso |
+| **Tecnología** | **Uso** |
 |---|---|
 | **Kotlin** | Lenguaje principal de desarrollo |
-| **Android Studio** | Entorno de desarrollo |
-| **Jetpack Compose** | Construcción de interfaces de usuario |
-| **Material 3** | Componentes y diseño visual |
-| **Room** | Persistencia de datos local |
-| **Kotlin Coroutines y Flow** | Operaciones asíncronas y observación de datos |
-| **Gradle** | Configuración y construcción del proyecto |
-| **Git y GitHub** | Control de versiones y colaboración |
+| **Android Studio** | Entorno oficial de desarrollo y compilación |
+| **Jetpack Compose** | Construcción de interfaces de usuario modernas y declarativas |
+| **Material 3** | Componentes visuales y diseño de interfaz corporativa |
+| **Room** | ORM y persistencia de datos relacionales locales |
+| **Kotlin Coroutines & Flow** | Operaciones asíncronas y flujo reactivo de datos |
+| **Gradle** | Gestión de dependencias y construcción de paquetes |
+| **Git & GitHub** | Control de versiones y colaboración en equipo |
 
-## 🧱 Estructura del proyecto
+## 🧱 Estructura y explicación del proyecto
+
+El código fuente del proyecto está organizado de manera modular bajo el paquete raíz `com.dsy1105.therionlabsapp`. A continuación se detalla cada componente:
 
 ```text
 TherionlabsApp/
@@ -51,29 +45,66 @@ TherionlabsApp/
 │   └── src/
 │       ├── main/
 │       │   ├── java/com/dsy1105/therionlabsapp/
-│       │   │   ├── datos/          # Entidades, DAO y acceso a datos
-│       │   │   ├── interfaz/       # Pantallas y componentes de interfaz
-│       │   │   ├── ui/theme/       # Tema visual de la aplicación
-│       │   │   └── MainActivity.kt # Actividad principal
-│       │   └── res/                # Recursos de Android
-│       ├── androidTest/             # Pruebas instrumentadas
-│       └── test/                    # Pruebas unitarias
-├── build.gradle.kts
-├── settings.gradle.kts
-└── README.md
+│       │   │   ├── datos/                     # Persistencia y modelos de base de datos
+│       │   │   │   ├── BaseDatosApp.kt        # Configuración principal de Room
+│       │   │   │   ├── ProspectoDao.kt        # Consultas para insertar y leer datos
+│       │   │   │   ├── ProspectoEntidad.kt    # Entidad de la tabla de prospectos
+│       │   │   │   └── ProspectoRepositorio.kt # Centraliza las operaciones de datos
+│       │   │   │
+│       │   │   ├── interfaz/                  # Vistas del flujo de captadores
+│       │   │   │   ├── PantallaLogin.kt       # Autenticación y acceso al módulo admin
+│       │   │   │   ├── PantallaInicio.kt      # Panel principal del captador
+│       │   │   │   ├── PantallaFormulario.kt  # Formulario por pasos para prospectos
+│       │   │   │   ├── PantallaRegistro.kt    # Consulta y seguimiento de registros
+│       │   │   │   ├── PantallaRegistroCaptador.kt # Registro de perfiles de captadores
+│       │   │   │   ├── ComponentesComunes.kt  # Botones, campos y elementos reutilizables
+│       │   │   │   └── ProspecctoViewModel.kt # Estado y lógica de la interfaz
+│       │   │   │
+│       │   │   ├── interfazAdmin/             # Módulo de administración
+│       │   │   │   ├── InterfazAdmin.kt      # Navegación principal del panel admin
+│       │   │   │   ├── PantallaAdmin.kt      # Inicio de sesión de administradores
+│       │   │   │   ├── PanelAdministrativo.kt # Dashboard y accesos gerenciales
+│       │   │   │   └── ListadoMaestroProspectos.kt # Listado global de prospectos
+│       │   │   │
+│       │   │   ├── ui/theme/                  # Diseño visual de Material 3
+│       │   │   │   ├── Color.kt               # Paleta de colores
+│       │   │   │   ├── Theme.kt               # Configuración de temas
+│       │   │   │   └── Type.kt                # Tipografías y estilos de texto
+│       │   │   │
+│       │   │   └── MainActivity.kt            # Actividad principal y navegación
+│       │   └── res/                           # Recursos estáticos
+│       ├── androidTest/                       # Pruebas instrumentadas
+│       └── test/                              # Pruebas unitarias
+├── build.gradle.kts                           # Configuración de Gradle
+├── settings.gradle.kts                        # Configuración de módulos
+└── README.md                                  # Documentación del proyecto
 ```
 
-## 🚀 Requisitos
+## 📱 Explicación detallada de las pantallas
 
-Antes de ejecutar el proyecto, asegúrate de contar con:
+La aplicación divide su experiencia de usuario en dos módulos principales, según el rol del usuario autenticado.
 
-- [Android Studio](https://developer.android.com/studio).
-- Android SDK instalado y configurado.
-- JDK compatible con la configuración de Gradle del proyecto.
-- Un emulador Android o un dispositivo físico con depuración USB habilitada.
-- Conexión a Internet para descargar las dependencias durante la primera sincronización.
+### 1. Módulo de autenticación y captación
 
-## ▶️ Instalación y ejecución
+- **`PantallaLogin` (`PantallaLogin.kt`):** puerta de entrada a la aplicación. Incluye campos para usuario y contraseña, validación de credenciales, opción para mostrar u ocultar la contraseña y un botón **“Soy administrador”** que lleva al portal gerencial.
+- **`PantallaInicio` (`PantallaInicio.kt`):** menú principal para captadores autenticados. Permite iniciar un nuevo registro o consultar el estado de la captación.
+- **`PantallaFormulario` (`PantallaFormulario.kt`):** flujo guiado por pasos para ingresar los datos personales del prospecto —nombre, correo y teléfono— y sus preferencias académicas —nivel educativo, área de interés, curso y modalidad—.
+- **`PantallaRegistro` (`PantallaRegistro.kt`):** muestra los prospectos almacenados localmente y permite revisar el estado de cada contacto.
+- **`PantallaRegistroCaptador` (`PantallaRegistroCaptador.kt`):** vista auxiliar para registrar nuevos operadores o cuentas de captación en terreno.
+
+### 2. Módulo de administración
+
+- **`PantallaAdmin` (`PantallaAdmin.kt`):** pantalla de autenticación para administradores, destinada a restringir el acceso a las herramientas gerenciales.
+- **`PanelAdministrativo` (`PanelAdministrativo.kt`):** centro de control que presenta tarjetas interactivas y accesos a funciones de gestión, reportes y parámetros de seguridad.
+- **`ListadoMaestroProspectos` (`ListadoMaestroProspectos.kt`):** muestra el conjunto de prospectos registrados por los distintos captadores, facilitando la revisión y el análisis de la campaña.
+
+## 🚀 Requisitos de ejecución
+
+- [Android Studio](https://developer.android.com/studio) (se recomienda una versión compatible con la configuración del proyecto).
+- Android SDK configurado según las versiones definidas en el proyecto.
+- Dispositivo Android o emulador compatible.
+
+## ▶️ Instalación y configuración
 
 1. **Clona el repositorio:**
 
@@ -81,58 +112,41 @@ Antes de ejecutar el proyecto, asegúrate de contar con:
    git clone URL_DEL_REPOSITORIO
    ```
 
-2. **Ingresa a la carpeta del proyecto:**
+2. Abre la carpeta del proyecto desde Android Studio.
+3. Espera a que Gradle sincronice las dependencias.
+4. Selecciona un emulador o conecta un dispositivo Android.
+5. Presiona **Run (▶)** para compilar y ejecutar la aplicación.
 
-   ```bash
-   cd TherionlabsApp
-   ```
+> **Nota:** reemplaza `URL_DEL_REPOSITORIO` por la URL real del repositorio de GitHub.
 
-3. **Abre Android Studio** y selecciona **Open**.
-4. Selecciona la carpeta raíz del proyecto, donde se encuentra `settings.gradle.kts`.
-5. Espera a que termine la sincronización de Gradle.
-6. Selecciona un emulador o conecta un dispositivo Android.
-7. Presiona **Run ▶** para compilar y ejecutar la aplicación.
+## 🔑 Credenciales de acceso de demostración
 
-> Reemplaza `URL_DEL_REPOSITORIO` por la dirección real del repositorio de GitHub.
+Credenciales de ejemplo para probar los distintos roles:
 
-## 🗃️ Datos almacenados
+- **Administrador**
+  - Usuario: `admin`
+  - Contraseña: `admin123`
+- **Captadores en terreno**
+  - Usuario: `juan`
+  - Contraseña: `1234`
+  - Usuario: `captador`
+  - Contraseña: `2026`
 
-La información de cada prospecto contempla los siguientes datos:
+> **Importante:** estas credenciales son únicamente para demostración. No utilices contraseñas de ejemplo en un entorno real ni publiques credenciales reales en un repositorio público.
 
-- Identificador.
-- Nombre.
-- Correo electrónico.
-- Teléfono.
-- Nivel educativo.
-- Área de interés.
-- Curso de interés.
-- Modalidad de estudio.
-- Estado del registro.
-- Fecha de creación.
+## 👥 Integrantes del equipo
 
-Los datos se gestionan mediante almacenamiento local con **Room**, utilizando la base de datos `therionlabs_db`.
-
-## 🤝 Trabajo colaborativo
-
-El proyecto utiliza **Git y GitHub** para mantener el control de versiones y facilitar la colaboración entre los integrantes del equipo. La planificación y distribución de tareas se puede organizar mediante **Trello**.
-
-## 👥 Integrantes
-
-- **Integrante 1:** Denilson Moya
-- **Integrante 2:** Juan Roldan
-- **Integrante 3:** Benjamin Catalan
-- **Integrante 4:** Camilo Ambrosetti
+- **Denilson Moya**
+- **Juan Roldan**
+- **Benjamin Catalan**
+- **Camilo Ambrosetti**
 
 ## 📚 Información académica
 
 - **Asignatura:** DSY1105 – Desarrollo de Aplicaciones Móviles
-- **Proyecto:** TherionLabs
-- **Tipo de entrega:** Desarrollo de aplicación móvil Android
+- **Institución:** Duoc UC
+- **Proyecto:** TherionLabs App
 
 ---
 
-<div align="center">
-
-**TherionLabs** · Registro y organización de prospectos académicos
-
-</div>
+**TherionLabs** · Innovación en la captación y gestión académica
