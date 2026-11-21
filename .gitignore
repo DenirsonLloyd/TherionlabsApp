@@ -14,3 +14,5 @@ local.properties
 /backend/usuarios-service/datos/
 /backend/postulaciones-service/datos/
 *.apk
+
+/TherionlabsApp/
