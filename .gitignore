@@ -1,0 +1,16 @@
+.gradle/
+.idea/
+.kotlin/
+**/build/
+**/target/
+**/datos/*.mv.db
+**/datos/*.trace.db
+local.properties
+*.jks
+*.keystore
+*.pem
+.env
+.DS_Store
+/backend/usuarios-service/datos/
+/backend/postulaciones-service/datos/
+*.apk

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="duoc_amarillo">#FFB81C</color>
+    <color name="duoc_negro">#191919</color>
+    <color name="duoc_gris">#686868</color>
+    <color name="duoc_blanco">#FFFFFF</color>
+</resources>
