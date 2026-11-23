@@ -292,19 +292,19 @@ Para generar una versión release firmada:
 
 Esta captura muestra el proceso de creación de la clave utilizada para firmar la aplicación Android.
 
-![Creación de la clave de firma](docs/images/img1.jpeg)
+![Creación de la clave de firma](docs/images/firma.jpeg)
 
 ### 14.2 Selección de la variante Release
 
 Esta captura muestra la selección de la variante Release durante la generación del APK firmado.
 
-![Selección de APK Release](docs/images/img2.jpeg)
+![Selección de APK Release](docs/images/apkrelease.jpeg)
 
 ### 14.3 APK firmado y archivo JSON
 
 Esta captura muestra los archivos generados al finalizar el proceso de compilación y firma de la aplicación.
 
-![APK firmado y archivo JSON](docs/images/img3.jpeg)
+![APK firmado y archivo JSON](docs/images/apkYjson.jpeg)
 ## 15. Publicación en GitHub
 
 Una vez actualizados los archivos y agregadas las capturas, ejecutar desde la carpeta principal:
